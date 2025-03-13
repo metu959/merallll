@@ -15,7 +15,7 @@ const POList = () => {
 
     const fetchPOData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/po-data');
+            const response = await axios.get('13.233.156.29/api/po-data');
             setPOData(response.data);
         } catch (error) {
             console.error('Error fetching PO data', error);
@@ -24,7 +24,7 @@ const POList = () => {
 
     const fetchWOData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/wo-data');
+            const response = await axios.get('13.233.156.29/api/wo-data');
             setWOData(response.data);
         } catch (error) {
             console.error('Error fetching WO data', error);
@@ -46,7 +46,7 @@ const POList = () => {
         
     
         try {
-            const response = await axios.post('http://localhost:5000/api/upload', formData, {
+            const response = await axios.post('13.233.156.29/api/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
     
@@ -70,7 +70,7 @@ const POList = () => {
 
     const handleConvert = async (poNumber) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/convert-to-wo', { poNumber });
+            const response = await axios.post('13.233.156.29/api/convert-to-wo', { poNumber });
             alert(`WO Number Created: ${response.data.woNumber}`);
             fetchWOData(); // Refresh WO table after conversion
         } catch (error) {
